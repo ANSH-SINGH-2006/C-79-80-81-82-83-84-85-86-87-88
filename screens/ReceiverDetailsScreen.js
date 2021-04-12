@@ -163,16 +163,7 @@ export default class ReceiverDetailsScreen extends Component{
 
                         ):null
                     }
-                    <TouchableOpacity style={styles.button}
-                            onPress={()=>{
-                                this.props.navigation.navigate('CurrencyConvert')
-                            }}
-                            
-                            >
-                                <Text style={{color: 'white'}}>
-                                    Convert Currency
-                                </Text>
-                            </TouchableOpacity>
+                    
                 </View>
             </View>
         )

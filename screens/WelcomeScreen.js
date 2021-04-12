@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Image, Modal, Keyb
 import firebase from 'firebase';
 import db from '../config';
 import { ScrollView } from 'react-native-gesture-handler';
+import {RFValue} from 'react-native-responsive-fontsize'
+
 
 export default class WelcomeScreen extends React.Component{
     constructor(){
@@ -179,7 +181,7 @@ export default class WelcomeScreen extends React.Component{
                 <View style={styles.profileContainer}>
 
                 <Image source={{uri: 'https://i.ibb.co/R2KSPBR/image.png'}}
-       style={{width: 250, height: 200}} />
+       style={{width: '30%', height: 400}} />
                     <Text
                     style={styles.title}
                     >Barter</Text>
@@ -266,7 +268,7 @@ const styles=StyleSheet.create({
         alignItems:'center'
     },
     title:{
-        fontSize:65,
+        fontSize:100,
         fontWeight:'400',
         paddingBottom:10,
         color:'#A52A2A',
@@ -274,34 +276,35 @@ const styles=StyleSheet.create({
         fontFamily:'Courier New'
     },
     loginBox:{
-        width:300,
-        height:40,
+        width: "50%",
+        height: RFValue(50),
         borderBottomWidth:1.5,
         borderColor:'#ff8a65',
-        fontSize:20,
-        margin:10,
+        fontSize: RFValue(20),
+        margin:RFValue(10),
         paddingLeft:10,
         marginTop:10,
         marginTop:40
     },
     loginBox1:{
-        width:300,
-        height:40,
+        width: "50%",
+        height: RFValue(50),
         borderBottomWidth:1.5,
         borderColor:'#ff8a65',
-        fontSize:20,
-        margin:10,
+        fontSize: RFValue(20),
+        margin:RFValue(10),
         paddingLeft:10,
         
     },
     button:{
-        width:300,
-        height:50,
+        width:'50%',
+        height:RFValue(50),
         justifyContent:'center',
         alignItems:'center',
-        borderRadius:25,
+        borderRadius:RFValue(25),
         backgroundColor:'#B22222',
         shadowColor:'#000',
+        marginBottom: RFValue(10),
         shadowOffset:{
             width:0,
             height:8
@@ -315,7 +318,7 @@ const styles=StyleSheet.create({
     buttonText:{
         color:'#ffff',
         fontWeight:'200',
-        fontSize:20,
+        fontSize:RFValue(20)
 
     },
     buttonContainer:{
@@ -327,7 +330,8 @@ const styles=StyleSheet.create({
         textTransform:'uppercase',
         color:'#EE3B3B',
         fontWeight:'600',
-        fontFamily: 'cursive'
+        fontFamily: 'cursive',
+        fontSize: 20
     },
     modalTitle:{
         justifyContent:'center',

@@ -7,31 +7,46 @@ import MyDonationScreen from '../screens/MyDonationScreen'
 import NotificationScreen from '../screens/NotificationScreen'
 import MyReceievedBooksScreen from '../screens/MyReceievedBookScreen'
 import CurrenyConvertScreen from '../screens/CurrencyConvertScreen'
+import {Icon} from 'react-native-elements'
 
 export const AppDrawerNavigator = createDrawerNavigator({
   Home : {
-    screen : AppTabNavigator
+    screen : AppTabNavigator,
+    navigationOptions: {
+      drawerIcon: <Icon name='home' type='font-awesome'/>
+    }
     },
 
     Settings:{
-      screen: SettingScreen
+      screen: SettingScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name='settings' type='fontawesome5'/>
+      }
+      
     },
 
     MyBarters:{
-      screen: MyDonationScreen
+      screen: MyDonationScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name='gift' type='font-awesome'/>
+      }
     },
 
     Notification:{
-      screen: NotificationScreen
+      screen: NotificationScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name='bell' type='font-awesome'/>
+      }
     },
 
     MyReceievedItems: {
-      screen: MyReceievedBooksScreen
+      screen: MyReceievedBooksScreen,
+      navigationOptions: {
+        drawerIcon: <Icon name='gift' type='font-awesome'/>
+      }
     },
 
-    CurrencyConvert: {
-      screen: CurrenyConvertScreen
-    }
+    
   
 },
   {

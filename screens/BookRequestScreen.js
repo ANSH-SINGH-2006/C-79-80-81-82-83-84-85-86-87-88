@@ -31,7 +31,8 @@ export default class BookRequestScreen extends Component{
       docId: "",
       imageLink: "",
       dataSource: "",
-      showFlatList: false
+      showFlatList: false,
+      currencyCode: '',
     }
   }
 
@@ -111,6 +112,18 @@ export default class BookRequestScreen extends Component{
       })
     }
 
+    getData(){
+      fetch("http://data.fixer.io/api/latest?access_key=1f7dd48123a05ae588283b5e13fae944&format=1")
+      .then(response=>{
+        return response.json();
+      }).then(responseData =>{
+        var currencyCode = this.state.currencyCode
+        var currency = responseData.rates.INR
+        var value =  69 / currency
+        console.log(value);
+      })
+      }
+
     sendNotification=()=>{
       db.collection('users').where('email_id', "==", this.state.userId).get()
       .then((snapshot)=>{
@@ -139,6 +152,7 @@ export default class BookRequestScreen extends Component{
     componentDidMount(){
       this.getBookRequest()
       this.getIsBookRequestActive()
+      this.getData()
       
     }
 
@@ -291,6 +305,28 @@ export default class BookRequestScreen extends Component{
                 }}
                 value ={this.state.reasonToRequest}
               />
+              <TextInput
+              style ={{width: 1150,
+                height:100,
+                alignSelf:'center',
+                borderColor:'#B22222',
+                borderRadius:10,
+                borderWidth:1,
+                marginTop:20,
+                padding:10,
+              
+            }}
+              maxLength= {8}
+              placeholder={"country currency code"}
+              onChangeText ={(text)=>{
+                this.setState({
+                    currencyCode:text
+                })
+                this.getData()
+            }}
+              />
+
+              
               <TouchableOpacity
                 style={styles.button}
                 onPress={()=>{this.addRequest(this.state.bookName,this.state.reasonToRequest)}}
